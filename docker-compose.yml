@@ -1,0 +1,10 @@
+version: '3'
+services:
+  web:
+    build: .
+    container_name: squareteams-web-dev
+    volumes:
+      - .:/opt/squareteams
+      - /opt/squareteams/node_modules/
+    ports:
+      - 3000:3000

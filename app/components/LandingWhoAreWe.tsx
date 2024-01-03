@@ -76,7 +76,7 @@ export default function LandingWhoAreWe() {
           <div className="col-span-5 mt-24">
             <div className="container mx-auto grid grid-cols-3 gap-8">
               <div className="col-span-1 relative group">
-                <div ref={card_1} data-scroll data-scroll-speed="0.3" className="sec1-card aspect-w-4 aspect-h-5 bg-cover bg-center w-full border border-gray-300 rounded-lg overflow-hidden shadow-md opacity-0">
+                <div ref={card_1} data-scroll data-scroll-speed="0.3" className="sec1-card aspect-w-4 aspect-h-5 bg-cover bg-center w-full rounded-lg overflow-hidden shadow-md opacity-0">
                   <div className="relative w-full h-full group-hover:scale-105 transition-transform transform">
                     <div className="absolute inset-0" style={{ backgroundImage: 'url("/assets/sec_1/ilustrator.jpg")', backgroundSize: 'cover', backgroundPosition: 'center' }}></div>
                     <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-60"></div>
@@ -84,7 +84,7 @@ export default function LandingWhoAreWe() {
                 </div>
               </div>
               <div className="col-span-1 relative group" style={{ marginTop: '120px' }}>
-                <div ref={card_2} data-scroll data-scroll-speed="0.5" className="sec1-card aspect-w-4 aspect-h-5 bg-cover bg-center w-full border border-gray-300 rounded-lg overflow-hidden shadow-md opacity-0">
+                <div ref={card_2} data-scroll data-scroll-speed="0.5" className="sec1-card aspect-w-4 aspect-h-5 bg-cover bg-center w-full rounded-lg overflow-hidden shadow-md opacity-0">
                   <div className="relative w-full h-full group-hover:scale-105 transition-transform transform">
                     <div className="absolute inset-0" style={{ backgroundImage: 'url("/assets/sec_1/photog.jpg")', backgroundSize: 'cover', backgroundPosition: 'center' }}></div>
                     <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-60"></div>
@@ -92,7 +92,7 @@ export default function LandingWhoAreWe() {
                 </div>
               </div>
               <div className="col-span-1 relative group">
-                <div ref={card_3} data-scroll data-scroll-speed="0.3" className="sec1-card aspect-w-4 aspect-h-5 bg-cover bg-center w-full border border-gray-300 rounded-lg overflow-hidden shadow-md opacity-0">
+                <div ref={card_3} data-scroll data-scroll-speed="0.3" className="sec1-card aspect-w-4 aspect-h-5 bg-cover bg-center w-full rounded-lg overflow-hidden shadow-md opacity-0">
                   <div className="relative w-full h-full group-hover:scale-105 transition-transform transform">
                     <div className="absolute inset-0" style={{ backgroundImage: 'url("/assets/sec_1/coser.jpg")', backgroundSize: 'cover', backgroundPosition: 'center' }}></div>
                     <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-60"></div>

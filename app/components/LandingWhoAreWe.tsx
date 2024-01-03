@@ -63,7 +63,7 @@ export default function LandingWhoAreWe() {
   }, []);
 
   return (
-    <div className="bg-gray-100 py-16 min-h-screen">
+    <div className="bg-gray-100 py-16 min-h-50-screen md:min-h-screen">
       <div className="mx-auto text-center">
         <div className="grid grid-cols-5 gap-4">
           <div className="col-span-5 px-12 lg-px-24 opacity-0" ref={titleRef}>
@@ -73,8 +73,8 @@ export default function LandingWhoAreWe() {
               Born from the collective spirit of visionaries and creative minds, Square is your go-to destination for collaboration, inspiration, and growth.
             </p>
           </div>
-          <div className="col-span-5 mt-24">
-            <div className="container mx-auto grid grid-cols-3 gap-8">
+          <div className="col-span-5 mt-12 lg:mt-24 px-5 md:px-0">
+            <div className="container mx-auto grid grid-cols-3 gap-3 md:gap-8">
               <div className="col-span-1 relative group">
                 <div ref={card_1} data-scroll data-scroll-speed="0.3" className="sec1-card aspect-w-4 aspect-h-5 bg-cover bg-center w-full rounded-lg overflow-hidden shadow-md opacity-0">
                   <div className="relative w-full h-full group-hover:scale-105 transition-transform transform">
@@ -83,8 +83,8 @@ export default function LandingWhoAreWe() {
                   </div>
                 </div>
               </div>
-              <div className="col-span-1 relative group" style={{ marginTop: '120px' }}>
-                <div ref={card_2} data-scroll data-scroll-speed="0.5" className="sec1-card aspect-w-4 aspect-h-5 bg-cover bg-center w-full rounded-lg overflow-hidden shadow-md opacity-0">
+              <div className="col-span-1 relative group mt-0 md:mt-12">
+                <div ref={card_2} data-scroll data-scroll-speed="0.5" className="sec1-card aspect-w-4 aspect-h-5 bg-cover bg-center w-full rounded-lg overflow-hidden shadow-md opacity-20">
                   <div className="relative w-full h-full group-hover:scale-105 transition-transform transform">
                     <div className="absolute inset-0" style={{ backgroundImage: 'url("/assets/sec_1/photog.jpg")', backgroundSize: 'cover', backgroundPosition: 'center' }}></div>
                     <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-60"></div>

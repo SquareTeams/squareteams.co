@@ -67,3 +67,7 @@ body {
 .animate {
   animation: emergeFromBottom 0.8s ease-out;
 }
+
+.min-h-50-screen {
+    min-height: 50vh;
+}

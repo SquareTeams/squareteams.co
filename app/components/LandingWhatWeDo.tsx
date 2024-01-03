@@ -47,7 +47,7 @@ export default function LandingWhatWeDo() {
       <div className="mx-auto text-left items-center py-24 px-12 lg:px-24">
         <div className="grid grid-cols-10">
           <div className="col-span-10 md:col-span-3 opacity-0 relative -left-48" ref={titleRef}>
-            <h2 className="text-3xl font-bold mb-8 text-3xl md:text-6xl 2xl:text-7xl mb-12 py-8">WHAT WE DO?</h2>
+            <h2 className="text-3xl font-bold mb-4 lg:mb-8 text-4xl md:text-6xl 2xl:text-7xl mb-12 py-4 xl:py-8">WHAT WE DO?</h2>
           </div>
           <div className="col-span-10 md:col-span-7 flex flex-col items-start space-y-1 md:space-y-4 mb-8">
             {
@@ -87,9 +87,9 @@ const AnimatedList: React.FC<AnimatedListProps> = ({ text }) => {
   }, []);
 
   return (
-    <div ref={containerRef} className="flex items-center py-8 w-full opacity-0">
+    <div ref={containerRef} className="flex items-center py-4 xl:py-8 w-full opacity-0">
       <div className="text-3xl 2xl:text-7xl mr-2">&#9654;</div>
-      <p className="ml-2 text-2xl lg:text-4xl 2xl:text-7xl">{text}</p>
+      <p className="ml-2 text-2xl md:text-4xl xl:text-5xl 2xl:text-7xl">{text}</p>
     </div>
   );
 };

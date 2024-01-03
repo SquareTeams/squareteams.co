@@ -1,5 +1,6 @@
 'use client'
 
+import Image from 'next/image'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faInstagram, faTiktok, faXTwitter } from '@fortawesome/free-brands-svg-icons';
 
@@ -22,7 +23,7 @@ export default function Footer() {
         <div className="footer-info-section">
           <div className="flex flex-col items-end">
             <div className="w-auto">
-              <img src="/assets/square_md.png" alt="Logo" className="h-12 md:h-20 w-auto mb-12"/>
+              <Image src="/assets/square_md.png" width={400} height={400} alt="Square Logo" className="h-12 md:h-20 w-auto mb-12"/>
               <p className="uppercase opacity-70 ">Bussiness Inquiry:</p>
               <a className="uppercase opacity-70 text-xl md:text-2xl font-bold" href="emailto:info@squareteams.co">info@squareteams.co</a>
             </div>

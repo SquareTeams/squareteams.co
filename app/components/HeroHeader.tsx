@@ -1,5 +1,6 @@
 'use client'
 
+import Image from 'next/image'
 import React, { useState, useRef, useLayoutEffect } from 'react';
 import anime from 'animejs/lib/anime.es.js';
 import gsap from 'gsap';
@@ -51,7 +52,7 @@ export default function HeroHeader() {
         <div className="mx-auto flex items-center justify-between px-6 xl:px-18">
           {/* Navbar Brand with Logo */}
           <div className="flex items-center">
-            <img src="/assets/square_md.png" alt="Logo" className="h-12 md:h-12 w-auto" />
+            <Image width={400} height={400} alt="Square Logo" src="/assets/square_md.png" className="h-12 md:h-12 w-auto" />
           </div>
 
           {/* Hamburger Menu Button for Mobile */}

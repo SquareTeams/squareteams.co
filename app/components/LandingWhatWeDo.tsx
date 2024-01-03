@@ -63,6 +63,10 @@ export default function LandingWhatWeDo() {
   );
 }
 
+interface AnimatedListProps {
+  text: string;
+}
+
 const AnimatedList: React.FC<AnimatedListProps> = ({ text }) => {
   const containerRef = useRef(null);
 

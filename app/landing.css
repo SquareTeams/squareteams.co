@@ -1,7 +1,3 @@
-* {
-    transition: all 1s ease;
-}  
-
 body {
     overflow: hidden;
     scrollbar-width: thin; /* For Firefox */
@@ -34,40 +30,63 @@ background-color: transparent; /* Set the color of the track */
 }
 
 .landing-entry {
-    position: absolute;
+    position: fixed;
     z-index: 9999;
     width: 100%;
     height: 100%;
 }
 
 .landing-container {
-position: absolute;
-top: 50%;
-left: 50%;
-transform: translate(-50%, -50%);
-z-index: 2;
-width: 20vh;
-transition: width 1s ease;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    width: 20vh;
+    transition: width 1s ease;
 }
 
 .square {
-cursor: pointer;
-width: 100%;
-height: auto;
-transition: opacity 0.5s ease;
+    cursor: pointer;
+    width: 100%;
+    height: auto;
+    transition: opacity 0.5s ease;
 }
 
 .square:hover {
-opacity: 1;
+    opacity: 1;
 }
 
 .square:hover .background {
-opacity: 1;
-background-color: #252525; /* Update background color on hover */
-transition: opacity 1s ease, background-color 1s ease;
+    opacity: 1;
+    background-color: #252525; /* Update background color on hover */
+    transition: opacity 1s ease, background-color 1s ease;
 }
 
 .square:hover .container {
-width: 150vw; /* Adjusted size on hover */
-transition: width 1s ease;
+    width: 150vw; /* Adjusted size on hover */
+    transition: width 1s ease;
+}
+
+.loading-indicator {
+    position: absolute;
+    z-index: 99999;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #93d5f8ff;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.sec1-card {
+    height: 50vh;
+    border: 20px solid #93d5f8ff;
+}
+
+.sec1-card * {
+    transition: all 1s ease;
 }

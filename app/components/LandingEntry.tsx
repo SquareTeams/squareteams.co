@@ -1,78 +1,127 @@
 'use client'
 
-import { useEffect, useState } from 'react';
+import { useLayoutEffect, useState } from 'react';
 import anime from 'animejs/lib/anime.es.js';
 
 export default function LandingEntry() {
-  useEffect(() => {
-    window.scrollTo({
-      top: 0,
-      left: 0,
-      behavior: 'smooth',
-    });
-    const square = document.querySelector('.square');
+  const [isLoading, setIsLoading] = useState(true);
+  const [loadingPercentage, setLoadingPercentage] = useState(0);
 
-    // Blinking Animation
-    anime({
-      targets: '.square',
-      opacity: [0, 1],
-      direction: 'alternate',
-      loop: true,
-      easing: 'linear',
-      duration: 500,
-    });
+  useLayoutEffect(() => {
+    try {
+      const square = document.querySelector('.square');
 
-    // Adjusting Size and Removing Element on Hover
-    const containerAnimation = anime({
-      targets: '.landing-container',
-      width: window.matchMedia("(orientation: portrait)").matches ? '150vh' : '150vw',
-      easing: 'easeInOutQuad',
-      duration: 1000,
-      autoplay: false,
-      begin: function () {
-        document.querySelector('body').style.overflowY = 'scroll';
-      },
-      complete: function () {
-        document.querySelector('.landing-background').style.opacity = 0;
-        const landingEntryElement = document.querySelector('.landing-entry');
+      if (!square) return; // Ensure the element exists before proceeding
 
-        setTimeout( () => {
-          if (landingEntryElement) {
-            landingEntryElement.style.opacity = 0; 
-            landingEntryElement.style.display = 'none'; 
-          } else {
-            console.log('Element not found');
-          }
-        }, 1000);
+      const fakeLoadingDuration = 1000; // Set the fake loading duration in milliseconds (15 seconds)
+      const interval = 100; // Update interval for loading percentage
 
-        setTimeout( () => {
-          if (landingEntryElement) {
-            landingEntryElement.remove();
-          } else {
-            console.log('Element not found');
-          }
-        }, 2000);
-      },
-    });
+      let elapsedTime = 0;
 
-    const handleLandingEntryAnimation = function (event) {
-      if (!event.target.classList.contains('handled')) {
-        event.target.classList.add('handled');
-        containerAnimation.play();
+      // Fake loading effect
+      const fakeLoadingInterval = setInterval(() => {
+        elapsedTime += interval;
+        setLoadingPercentage((elapsedTime / fakeLoadingDuration) * 100);
 
-        document.removeEventListener('mouseenter', handleLandingEntryAnimation);
-        document.removeEventListener('touchstart', handleLandingEntryAnimation);
+        if (elapsedTime >= fakeLoadingDuration) {
+          setIsLoading(false);
+          clearInterval(fakeLoadingInterval);
+        }
+      }, interval);
+
+      // Blinking Animation
+      const blinkingAnimation = anime({
+        targets: square,
+        opacity: [0, 1],
+        direction: 'alternate',
+        loop: true,
+        easing: 'linear',
+        duration: 500,
+      });
+
+      // Adjusting Size and Removing Element on Hover
+      const containerAnimation = anime({
+        targets: '.landing-container',
+        width: window.matchMedia("(orientation: portrait)").matches ? '150vh' : '150vw',
+        easing: 'easeInOutQuad',
+        duration: 1000,
+        autoplay: false,
+        begin: function () {
+          document.querySelector('body').style.overflowY = 'scroll';
+          window.scrollTo({
+            top: 0,
+            left: 0,
+            behavior: "smooth",
+          });
+        },
+        complete: function () {
+          document.querySelector('.landing-background').style.opacity = 0;
+          const landingEntryElement = document.querySelector('.landing-entry');
+
+          setTimeout(() => {
+            if (landingEntryElement) {
+              landingEntryElement.style.opacity = 0;
+              landingEntryElement.style.display = 'none';
+            } else {
+              console.log('Element not found');
+            }
+          }, 1000);
+
+          setTimeout(() => {
+            if (landingEntryElement) {
+              landingEntryElement.remove();
+            } else {
+              console.log('Element not found');
+            }
+          }, 2000);
+        },
+      });
+
+      const handleLandingEntryAnimation = function (event) {
+        if (!event.target.classList.contains('handled')) {
+          event.target.classList.add('handled');
+          // Stop the blinking animation when the main animation starts
+          blinkingAnimation.pause();
+
+          // Continue with the rest of your animation logic...
+          containerAnimation.play();
+
+          // Remove event listeners when animation is complete
+          square.removeEventListener('mouseenter', handleLandingEntryAnimation);
+          square.removeEventListener('touchstart', handleLandingEntryAnimation);
+        }
+      };
+
+      if (square && !isLoading) {
+        square.addEventListener('mouseenter', handleLandingEntryAnimation);
+        square.addEventListener('touchstart', handleLandingEntryAnimation);
       }
-    };
 
-    if (square) {
-      square.addEventListener('mouseenter', handleLandingEntryAnimation);
-      square.addEventListener('touchstart', handleLandingEntryAnimation);
-    };
-  });
+      // Cleanup function for the useEffect
+      return () => {
+        clearInterval(fakeLoadingInterval);
+
+        if (square) {
+          square.removeEventListener('mouseenter', handleLandingEntryAnimation);
+          square.removeEventListener('touchstart', handleLandingEntryAnimation);
+        }
+        // Any additional cleanup logic, if needed
+      };
+    } catch (error) {
+      console.error('An error occurred:', error);
+    }
+  }, [isLoading]); // Ensure the effect runs whenever the loading state changes
 
   return (
-    <div className="landing-entry">
+    <div className={`landing-entry ${isLoading ? 'loading' : ''}`}>
+      {isLoading && (
+        <div className="loading-indicator font-bold">
+          {/* Display loading percentage or "Hover Here" when 100% */}
+          {loadingPercentage < 100
+            ? `${Math.floor(loadingPercentage)}% Loading...`
+            : 'Hover Here'}
+        </div>
+      )}
       <div className="landing-background"></div>
       <div className="landing-container">
         <svg

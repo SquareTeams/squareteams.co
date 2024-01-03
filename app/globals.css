@@ -30,7 +30,40 @@ body {
   height: 100%;
 }
 
+.accent-bg {
+  background-color: #93d5f8ff;
+}
+
 .accent:hover {
   color: #93d5f8ff!important;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.overflow-hidden {
+  overflow: hidden;
+}
+
+.hamburger-menu {
+  transform: translateY(-100%);
+  transition: transform 0.6s ease-in-out;
+}
+
+.hamburger-menu.visible {
+  transform: translateY(0%);
+}
+
+/* Add this to your styles, adjust the animation values as needed */
+@keyframes emergeFromBottom {
+  0% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.animate {
+  animation: emergeFromBottom 0.8s ease-out;
 }

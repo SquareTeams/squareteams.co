@@ -44,7 +44,7 @@ export default function HeroHeader() {
       });
     }
 
-    const handleEntryStarted = (event) => {
+    const handleEntryStarted = (event: Event) => {
       setTimeout(() => {
         gsap.to('.text-animation', {
           opacity: 0.7,

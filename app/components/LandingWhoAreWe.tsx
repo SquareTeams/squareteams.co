@@ -4,23 +4,23 @@ import { useState, useEffect, useLayoutEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
+interface LandingWhoAreWeProps {}
 
-const getRandomInt = (min, max) => {
+const getRandomInt = (min: number, max: number): number => {
   return Math.floor(Math.random() * (max - min + 1) + min);
 };
 
+const LandingWhoAreWe: React.FC<LandingWhoAreWeProps> = () => {
+  const titleRef = useRef<HTMLDivElement>(null);
+  const card_1 = useRef<HTMLDivElement>(null);
+  const card_2 = useRef<HTMLDivElement>(null);
+  const card_3 = useRef<HTMLDivElement>(null);
 
-export default function LandingWhoAreWe() {
-  const titleRef = useRef(null);
-  const card_1 = useRef(null);
-  const card_2 = useRef(null);
-  const card_3 = useRef(null);
-
-  const [randomImages, setRandomImages] = useState([]);
+  const [randomImages, setRandomImages] = useState<number[]>([]);
 
   useEffect(() => {
-    const generateRandomImages = () => {
-      const uniqueRandomNumbers = [];
+    const generateRandomImages = (): number[] => {
+      const uniqueRandomNumbers: number[] = [];
       while (uniqueRandomNumbers.length < 3) {
         const randomNumber = getRandomInt(1, 4);
         if (!uniqueRandomNumbers.includes(randomNumber)) {
@@ -84,12 +84,19 @@ export default function LandingWhoAreWe() {
       opacity: 1,
     });
 
-    card_1.current.style.backgroundImage = `url("/assets/sec_1/sec1_diff-${randomImages[0]}.jpg")`;
-    card_2.current.style.backgroundImage = `url("/assets/sec_1/sec1_diff-${randomImages[1]}.jpg")`;
-    card_3.current.style.backgroundImage = `url("/assets/sec_1/sec1_diff-${randomImages[2]}.jpg")`;
+    if (card_1.current) {
+      card_1.current.style.backgroundImage = `url("/assets/sec_1/sec1_diff-${randomImages[0]}.jpg")`;
+    }
+
+    if (card_2.current) {
+      card_2.current.style.backgroundImage = `url("/assets/sec_1/sec1_diff-${randomImages[1]}.jpg")`;
+    }
+
+    if (card_3.current) {
+      card_3.current.style.backgroundImage = `url("/assets/sec_1/sec1_diff-${randomImages[2]}.jpg")`;
+    }
   }, [randomImages]);
 
-  // Return the JSX structure
   return (
     <div className="bg-gray-100 py-16 min-h-50-screen md:min-h-screen">
       <div className="mx-auto text-center">
@@ -136,4 +143,6 @@ export default function LandingWhoAreWe() {
       </div>
     </div>
   );
-}
+};
+
+export default LandingWhoAreWe;

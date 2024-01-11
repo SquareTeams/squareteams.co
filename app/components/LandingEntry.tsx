@@ -9,7 +9,7 @@ export default function LandingEntry() {
 
   useLayoutEffect(() => {
     try {
-      const square = document.querySelector('.square');
+      const square = document.querySelector<HTMLElement>('.square')!;
 
       if (!square) return; // Ensure the element exists before proceeding
 
@@ -47,7 +47,7 @@ export default function LandingEntry() {
         duration: 1000,
         autoplay: false,
         begin: function () {
-          document.querySelector('body').style.overflowY = 'scroll';
+          document.querySelector<HTMLElement>('body')!.style.overflowY = 'scroll';
           window.scrollTo({
             top: 0,
             left: 0,
@@ -55,12 +55,12 @@ export default function LandingEntry() {
           });
         },
         complete: function () {
-          document.querySelector('.landing-background').style.opacity = 0;
-          const landingEntryElement = document.querySelector('.landing-entry');
+          document.querySelector<HTMLElement>('.landing-background')!.style.opacity = '0';
+          const landingEntryElement = document.querySelector<HTMLElement>('.landing-entry')!;
 
           setTimeout(() => {
             if (landingEntryElement) {
-              landingEntryElement.style.opacity = 0;
+              landingEntryElement.style.opacity = '0';
               landingEntryElement.style.display = 'none';
             } else {
               console.log('Element not found');
@@ -77,9 +77,11 @@ export default function LandingEntry() {
         },
       });
 
-      const handleLandingEntryAnimation = function (event) {
-        if (!event.target.classList.contains('handled')) {
-          event.target.classList.add('handled');
+      const handleLandingEntryAnimation = function (event: Event) {
+        const { target } = event;
+        
+        if(target instanceof Element && !target.classList.contains('handled')){
+          target.classList.add('handled');
           // Stop the blinking animation when the main animation starts
           blinkingAnimation.pause();
 
@@ -89,6 +91,15 @@ export default function LandingEntry() {
           // Remove event listeners when animation is complete
           square.removeEventListener('mouseenter', handleLandingEntryAnimation);
           square.removeEventListener('touchstart', handleLandingEntryAnimation);
+          
+          // Send Event Trigger
+          const entryStartedEvent = new CustomEvent('entryStarted', {
+            detail: { start: true },
+            bubbles: true,
+            cancelable: true, 
+          });
+          
+          document.dispatchEvent(entryStartedEvent);
         }
       };
 
@@ -105,7 +116,6 @@ export default function LandingEntry() {
           square.removeEventListener('mouseenter', handleLandingEntryAnimation);
           square.removeEventListener('touchstart', handleLandingEntryAnimation);
         }
-        // Any additional cleanup logic, if needed
       };
     } catch (error) {
       console.error('An error occurred:', error);

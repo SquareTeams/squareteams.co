@@ -31,7 +31,7 @@ export default function ComingSoon() {
         <div className="text-gray-800 text-center bg-white rounded-lg shadow-lg bg-opacity-75 card-container p-24 opacity-0">
           <h1 className="text-6xl font-bold mb-4 coming-soon-text">Coming Soon!</h1>
           <p className="text-lg mb-8 coming-soon-text">
-            We're working on something amazing for you! Stay tuned for our upcoming launch.
+            We&apos;re working on something amazing for you! Stay tuned for our upcoming launch.
           </p>
           <div className="flex justify-center">
             <a href="/" className="accent-bg text-white font-bold uppercase px-6 py-3 rounded-full focus:outline-none focus:shadow-outline-blue active:bg-blue-800 hover:bg-opacity-75">

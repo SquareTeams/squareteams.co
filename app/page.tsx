@@ -11,7 +11,21 @@ export default function Page() {
   useEffect(() => {
     (async () => {
       const { default: LocomotiveScroll } = await import('locomotive-scroll');
-      const locomotiveScroll = new LocomotiveScroll();
+      const locomotiveScroll = new LocomotiveScroll({
+        lenisOptions: {
+          wrapper: window,
+          content: document.documentElement,
+          lerp: 0.1,
+          duration: 1.2,
+          orientation: 'vertical',
+          gestureOrientation: 'vertical',
+          smoothWheel: true,
+          smoothTouch: true,
+          wheelMultiplier: 1,
+          touchMultiplier: .8,
+          normalizeWheel: true
+        },
+      } as any);
     })();
   }, []);
 

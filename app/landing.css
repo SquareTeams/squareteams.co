@@ -84,9 +84,16 @@ background-color: transparent; /* Set the color of the track */
 
 .sec1-card {
     height: 50vh;
-    border: 20px solid #93d5f8ff;
+    border: 20px solid #93d5f8ff!important;
 }
 
 .sec1-card * {
     transition: all 1s ease;
+}
+
+@media (max-width: 768px) {
+    .sec1-card {
+        height: 50vw;
+        border: 5px solid #93d5f8ff!important;
+    }
 }

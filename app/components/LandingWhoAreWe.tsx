@@ -1,14 +1,37 @@
 'use client'
 
+import { useState, useEffect, useLayoutEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { useLayoutEffect, useRef } from 'react'
- 
+
+
+const getRandomInt = (min, max) => {
+  return Math.floor(Math.random() * (max - min + 1) + min);
+};
+
+
 export default function LandingWhoAreWe() {
   const titleRef = useRef(null);
   const card_1 = useRef(null);
   const card_2 = useRef(null);
   const card_3 = useRef(null);
+
+  const [randomImages, setRandomImages] = useState([]);
+
+  useEffect(() => {
+    const generateRandomImages = () => {
+      const uniqueRandomNumbers = [];
+      while (uniqueRandomNumbers.length < 3) {
+        const randomNumber = getRandomInt(1, 4);
+        if (!uniqueRandomNumbers.includes(randomNumber)) {
+          uniqueRandomNumbers.push(randomNumber);
+        }
+      }
+      return uniqueRandomNumbers;
+    };
+
+    setRandomImages(generateRandomImages());
+  }, []);
 
   useLayoutEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
@@ -60,8 +83,13 @@ export default function LandingWhoAreWe() {
       bottom: '-200px',
       opacity: 1,
     });
-  }, []);
 
+    card_1.current.style.backgroundImage = `url("/assets/sec_1/sec1_diff-${randomImages[0]}.jpg")`;
+    card_2.current.style.backgroundImage = `url("/assets/sec_1/sec1_diff-${randomImages[1]}.jpg")`;
+    card_3.current.style.backgroundImage = `url("/assets/sec_1/sec1_diff-${randomImages[2]}.jpg")`;
+  }, [randomImages]);
+
+  // Return the JSX structure
   return (
     <div className="bg-gray-100 py-16 min-h-50-screen md:min-h-screen">
       <div className="mx-auto text-center">
@@ -78,7 +106,7 @@ export default function LandingWhoAreWe() {
               <div className="col-span-1 relative group">
                 <div ref={card_1} data-scroll data-scroll-speed="0.3" className="sec1-card aspect-w-4 aspect-h-5 bg-cover bg-center w-full rounded-lg overflow-hidden shadow-md opacity-0">
                   <div className="relative w-full h-full group-hover:scale-105 transition-transform transform">
-                    <div className="absolute inset-0" style={{ backgroundImage: 'url("/assets/sec_1/ilustrator.jpg")', backgroundSize: 'cover', backgroundPosition: 'center' }}></div>
+                    <div className="absolute inset-0"></div>
                     <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-60"></div>
                   </div>
                 </div>
@@ -86,7 +114,7 @@ export default function LandingWhoAreWe() {
               <div className="col-span-1 relative group mt-0 md:mt-12">
                 <div ref={card_2} data-scroll data-scroll-speed="0.5" className="sec1-card aspect-w-4 aspect-h-5 bg-cover bg-center w-full rounded-lg overflow-hidden shadow-md opacity-20">
                   <div className="relative w-full h-full group-hover:scale-105 transition-transform transform">
-                    <div className="absolute inset-0" style={{ backgroundImage: 'url("/assets/sec_1/photog.jpg")', backgroundSize: 'cover', backgroundPosition: 'center' }}></div>
+                    <div className="absolute inset-0"></div>
                     <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-60"></div>
                   </div>
                 </div>
@@ -94,7 +122,7 @@ export default function LandingWhoAreWe() {
               <div className="col-span-1 relative group">
                 <div ref={card_3} data-scroll data-scroll-speed="0.3" className="sec1-card aspect-w-4 aspect-h-5 bg-cover bg-center w-full rounded-lg overflow-hidden shadow-md opacity-0">
                   <div className="relative w-full h-full group-hover:scale-105 transition-transform transform">
-                    <div className="absolute inset-0" style={{ backgroundImage: 'url("/assets/sec_1/coser.jpg")', backgroundSize: 'cover', backgroundPosition: 'center' }}></div>
+                    <div className="absolute inset-0"></div>
                     <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-60"></div>
                   </div>
                 </div>
@@ -102,9 +130,10 @@ export default function LandingWhoAreWe() {
             </div>
           </div>
           <div>
+            {/* Other JSX elements if present */}
           </div>
         </div>
       </div>
     </div>
-  )
+  );
 }

@@ -10,13 +10,13 @@ export default function Footer() {
       <div className="container mx-auto text-left py-20 items-center grid grid-cols-2">
         <div className="footer-social-section col-span-2 md:col-span-1 text-center md:text-left">
           <ul className="list-none space-y-4">
-            <li className="uppercase opacity-70 hover:opacity-100 text-2xl md:text-4xl font-bold"><a href="" target="_blank">Find Out More On What We Do</a></li>
-            <li className="uppercase opacity-70 hover:opacity-100 text-2xl md:text-4xl"><a href="" target="_blank">Join Our Community</a></li>
+            <li className="uppercase opacity-70 hover:opacity-100 text-2xl md:text-4xl font-bold"><a href="/about" target="_blank">Find Out More On What We Do</a></li>
+            <li className="uppercase opacity-70 hover:opacity-100 text-2xl md:text-4xl"><a href="https://discord.gg/hvRfxkgA" target="_blank">Join Our Community</a></li>
             <li className="uppercase opacity-70 hover:opacity-100 text-2xl md:text-4xl">Follow Our Socials</li>
             <li className="text-4xl">
-              <a href="https://www.instagram.com/squareteams/"><FontAwesomeIcon icon={faInstagram} className="me-4"/></a>
-              <a href="https://www.x.com/squareteams/"><FontAwesomeIcon icon={faXTwitter} className="me-4"/></a>
-              <a href="https://www.tiktok.com/@squareteams/"><FontAwesomeIcon icon={faTiktok} className="me-0 md:me-4"/></a>
+              <a href="https://www.instagram.com/squareteams/" target="_blank"><FontAwesomeIcon icon={faInstagram} className="me-4"/></a>
+              <a href="https://www.x.com/square_teams/" target="_blank"><FontAwesomeIcon icon={faXTwitter} className="me-4"/></a>
+              <a href="https://www.tiktok.com/@squareteams/" target="_blank"><FontAwesomeIcon icon={faTiktok} className="me-0 md:me-4"/></a>
             </li>
           </ul>
         </div>

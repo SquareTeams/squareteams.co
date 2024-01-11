@@ -43,6 +43,22 @@ export default function HeroHeader() {
         easing: 'easeInOutQuad',
       });
     }
+
+    const handleEntryStarted = (event) => {
+      setTimeout(() => {
+        gsap.to('.text-animation', {
+          opacity: 0.7,
+          x: 0, 
+          duration: 2,
+          stagger: 1,
+        });
+      }, 1600);
+    };
+
+    document.addEventListener('entryStarted', handleEntryStarted);
+    return () => {
+      document.removeEventListener('entryStarted', handleEntryStarted);
+    };
   }, [isMenuOpen]);
 
   return (
@@ -89,9 +105,9 @@ export default function HeroHeader() {
       {/* Hero Content */}
       <div data-scroll data-scroll-speed="0.3" className="container mx-auto max-w-screen-2xl h-full flex items-center justify-start text-left">
         <div className="text-black text-3xl sm:text-5xl md:text-6xl xl:text-7xl space-y-1 md:space-y-4 ms-10 lg:ms-18 xl:ms-10">
-          <p className="opacity-70">Igniting Creativity.</p>
-          <p className="opacity-70 font-bold">Building Community.</p>
-          <p className="opacity-70">Crafting Tomorrow.</p>
+          <p className="opacity-0 text-animation">Igniting Creativity.</p>
+          <p className="opacity-0 font-bold text-animation">Building Community.</p>
+          <p className="opacity-0 text-animation">Crafting Tomorrow.</p>
         </div>
       </div>
     </div>

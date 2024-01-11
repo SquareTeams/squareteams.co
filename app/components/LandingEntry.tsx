@@ -91,6 +91,15 @@ export default function LandingEntry() {
           // Remove event listeners when animation is complete
           square.removeEventListener('mouseenter', handleLandingEntryAnimation);
           square.removeEventListener('touchstart', handleLandingEntryAnimation);
+          
+          // Send Event Trigger
+          const entryStartedEvent = new CustomEvent('entryStarted', {
+            detail: { start: true },
+            bubbles: true,
+            cancelable: true, 
+          });
+          
+          document.dispatchEvent(entryStartedEvent);
         }
       };
 
@@ -107,7 +116,6 @@ export default function LandingEntry() {
           square.removeEventListener('mouseenter', handleLandingEntryAnimation);
           square.removeEventListener('touchstart', handleLandingEntryAnimation);
         }
-        // Any additional cleanup logic, if needed
       };
     } catch (error) {
       console.error('An error occurred:', error);

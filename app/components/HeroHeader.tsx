@@ -52,6 +52,13 @@ export default function HeroHeader() {
           duration: 2,
           stagger: 1,
         });
+
+        gsap.to('.hero-tagline-animation', {
+          opacity: 1,
+          x: 0, 
+          duration: 6,
+          stagger: 1,
+        });
       }, 1600);
     };
 
@@ -62,7 +69,7 @@ export default function HeroHeader() {
   }, [isMenuOpen]);
 
   return (
-    <div className="bg-cover bg-center h-screen relative" style={{ backgroundImage: 'url("/assets/hero_bg.jpg")' }}>
+    <div className="hero-header bg-cover bg-center h-screen relative" style={{ backgroundImage: 'url("/assets/hero_bg_v2.jpg")' }}>
       {/* Navbar */}
       <nav className="bg-transparent p-4 absolute top-0 left-0 right-0">
         <div className="mx-auto flex items-center justify-between px-6 xl:px-18">
@@ -73,7 +80,7 @@ export default function HeroHeader() {
 
           {/* Hamburger Menu Button for Mobile */}
           <button
-            className="text-black opacity-50 focus:outline-none z-50"
+            className="text-black opacity-70 focus:outline-none z-50"
             onClick={toggleMenu}
           >
             <svg className="h-12 md:h-12 w-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -104,7 +111,7 @@ export default function HeroHeader() {
 
       {/* Hero Content */}
       <div data-scroll data-scroll-speed="0.3" className="container mx-auto max-w-screen-2xl h-full flex items-center justify-start text-left">
-        <div className="text-black text-3xl sm:text-5xl md:text-6xl xl:text-7xl space-y-1 md:space-y-4 ms-10 lg:ms-18 xl:ms-10">
+        <div className="hero-tagline opacity-0 hero-tagline-animation text-black text-3xl sm:text-5xl md:text-6xl xl:text-7xl space-y-1 md:space-y-4 ms-10 lg:ms-18 xl:ms-10 p-6">
           <p className="opacity-0 text-animation">Igniting Creativity.</p>
           <p className="opacity-0 font-bold text-animation">Building Community.</p>
           <p className="opacity-0 text-animation">Crafting Tomorrow.</p>

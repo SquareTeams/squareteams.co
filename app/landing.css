@@ -91,6 +91,20 @@ background-color: transparent; /* Set the color of the track */
     transition: all 1s ease;
 }
 
+.hero-header {
+    transition: all 2s ease;
+}
+
+.hero-tagline {
+    background-color: #fafafab5;
+}
+
+@media (max-width: 490px) {
+    .hero-header {
+        background-position-x: -41rem!important;
+    }
+}
+
 @media (max-width: 768px) {
     .sec1-card {
         height: 50vw;

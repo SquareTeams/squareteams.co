@@ -20,7 +20,6 @@ export default function Page() {
           orientation: 'vertical',
           gestureOrientation: 'vertical',
           smoothWheel: true,
-          smoothTouch: true,
           wheelMultiplier: 1,
           touchMultiplier: .8,
           normalizeWheel: true

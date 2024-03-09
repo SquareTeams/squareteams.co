@@ -96,12 +96,12 @@ background-color: transparent; /* Set the color of the track */
 }
 
 .hero-tagline {
-    background-color: #fafafab5;
+    background-color: #fafafa60;
 }
 
 @media (max-width: 490px) {
     .hero-header {
-        background-position-x: -41rem!important;
+        background-position-x: 67%!important;
     }
 }
 

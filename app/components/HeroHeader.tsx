@@ -56,7 +56,7 @@ export default function HeroHeader() {
         gsap.to('.hero-tagline-animation', {
           opacity: 1,
           x: 0, 
-          duration: 6,
+          duration: 4,
           stagger: 1,
         });
       }, 1600);
@@ -101,7 +101,7 @@ export default function HeroHeader() {
           </svg>
         </button>
 
-        <div className="flex flex-col items-center justify-center h-full">
+        <div className="flex flex-col items-center justify-center h-dvh">
           <a href="#" className="text-white text-3xl hover:text-5xl md:text-6xl md:hover:text-8xl block mb-6 md:mb-12 uppercase accent hover:font-bold ease-in-out duration-500">Home</a>
           <a href="/about" className="text-white text-3xl hover:text-5xl md:text-6xl md:hover:text-8xl block mb-6 md:mb-12 uppercase accent hover:font-bold ease-in-out duration-500">About</a>
           <a href="https://blog.squareteams.co/" className="text-white text-3xl hover:text-5xl md:text-6xl md:hover:text-8xl block mb-6 md:mb-12 uppercase accent hover:font-bold ease-in-out duration-500">Blog</a>
@@ -111,8 +111,8 @@ export default function HeroHeader() {
       </div>
 
       {/* Hero Content */}
-      <div data-scroll data-scroll-speed="0.3" className="container mx-auto max-w-screen-2xl h-full flex items-center justify-start text-left">
-        <div className="hero-tagline opacity-0 hero-tagline-animation text-black text-3xl sm:text-5xl md:text-6xl xl:text-7xl space-y-1 md:space-y-4 ms-10 lg:ms-18 xl:ms-10 p-6">
+      <div data-scroll data-scroll-speed="0.3" className="container mx-auto max-w-screen-2xl h-dvh flex items-center justify-start text-left">
+        <div className="hero-tagline absolute md:static bottom-5 md:bottom-32 opacity-0 hero-tagline-animation text-black text-3xl sm:text-5xl md:text-6xl xl:text-7xl space-y-1 md:space-y-4 ms-10 lg:ms-18 xl:ms-10 p-6">
           <p className="opacity-0 text-animation">Igniting Creativity.</p>
           <p className="opacity-0 font-bold text-animation">Building Community.</p>
           <p className="opacity-0 text-animation">Crafting Tomorrow.</p>

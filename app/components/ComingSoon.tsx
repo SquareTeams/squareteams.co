@@ -27,7 +27,7 @@ export default function ComingSoon() {
     }, []);
   
     return (
-      <div className="bg-cover bg-center h-screen relative flex items-center justify-center" style={{ backgroundImage: 'url("/assets/hero_bg.jpg")', backgroundColor: '#ffffff' }}>
+      <div className="hero-header bg-cover bg-center h-screen relative flex items-center justify-center" style={{ backgroundImage: 'url("/assets/hero_bg_v2.jpg")', backgroundColor: '#ffffff' }}>
         <div className="text-gray-800 text-center bg-white rounded-lg shadow-lg bg-opacity-75 card-container p-24 opacity-0">
           <h1 className="text-6xl font-bold mb-4 coming-soon-text">Coming Soon!</h1>
           <p className="text-lg mb-8 coming-soon-text">

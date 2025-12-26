@@ -104,7 +104,7 @@ export default function HeroHeader() {
         <div className="flex flex-col items-center justify-center h-dvh">
           <a href="#" className="text-white text-3xl hover:text-5xl md:text-6xl md:hover:text-8xl block mb-6 md:mb-12 uppercase accent hover:font-bold ease-in-out duration-500">Home</a>
           <a href="/about" className="text-white text-3xl hover:text-5xl md:text-6xl md:hover:text-8xl block mb-6 md:mb-12 uppercase accent hover:font-bold ease-in-out duration-500">About</a>
-          <a href="https://blog.squareteams.co/" className="text-white text-3xl hover:text-5xl md:text-6xl md:hover:text-8xl block mb-6 md:mb-12 uppercase accent hover:font-bold ease-in-out duration-500">Blog</a>
+          <a href="https://wearesquares.com/blog" className="text-white text-3xl hover:text-5xl md:text-6xl md:hover:text-8xl block mb-6 md:mb-12 uppercase accent hover:font-bold ease-in-out duration-500">Blog</a>
           <a href="/store" className="text-white text-3xl hover:text-5xl md:text-6xl md:hover:text-8xl block mb-6 md:mb-12 uppercase accent hover:font-bold ease-in-out duration-500">Store</a>
           <a href="/contact" className="text-white text-3xl hover:text-5xl md:text-6xl md:hover:text-8xl block mb-6 md:mb-12 uppercase accent hover:font-bold ease-in-out duration-500">Contact</a>
         </div>

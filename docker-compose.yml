@@ -1,10 +1,37 @@
-version: '3'
+version: '3.8'
+
 services:
-  web:
-    build: .
+  dev:
     container_name: squareteams-web-dev
+    build:
+      context: .
+      target: deps
+    command: npm run dev
+    ports:
+      - "3501:3000"
     volumes:
       - .:/opt/squareteams
-      - /opt/squareteams/node_modules/
+    env_file:
+      - .env.development
+
+  staging:
+    container_name: squareteams-web-staging
+    build:
+      context: .
+      target: runner
+    command: npm start
     ports:
-      - 3500:3000
+      - "3502:3000"
+    env_file:
+      - .env.staging
+
+  prod:
+    container_name: squareteams-web-prod
+    build:
+      context: .
+      target: runner
+    command: npm start
+    ports:
+      - "3500:3000"
+    env_file:
+      - .env.production

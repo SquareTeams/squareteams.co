@@ -5,8 +5,6 @@
   "scripts": {
     "dev": "WATCHPACK_POLLING=true next dev",
     "build": "next build && rm -rf .next/cache",
-    "build:staging": "cp .env.staging .env.local && next build && rm -rf .next/cache && rm .env.local",
-    "build:production": "cp .env.production .env.local && next build && rm -rf .next/cache && rm .env.local",
     "start": "next start",
     "lint": "next lint"
   },
